@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import TypedDict, Annotated
+from typing import TypedDict, Annotated, Optional
 from dataclasses import dataclass, field
 from pydantic import BaseModel, Field
 from langchain_core.messages import BaseMessage
@@ -138,7 +138,7 @@ class AgentState(TypedDict):
     assessment_log: list[AssessmentTurn]
     scores: dict[str, ProficiencyScore]
     gaps: list[SkillGap]
-    learning_plan: LearningPlan | None
+    learning_plan: Optional[LearningPlan]
     phase: Phase
     messages: Annotated[list[BaseMessage], add_messages]
 
