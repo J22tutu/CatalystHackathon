@@ -83,8 +83,8 @@ A resume tells you what someone *claims* to know — not how well they actually 
                               │
                     ┌─────────▼─────────┐
                     │  Google Gemini API │
-                    │  (gemini-2.0-flash │
-                    │  / gemini-1.5-pro) │
+                    │  (gemini-2.5-flash │
+                    │  / gemini-2.5-pro) │
                     └───────────────────┘
 ```
 
@@ -310,9 +310,9 @@ class LearningPlan:
 
 | Layer | Choice | Rationale |
 |---|---|---|
-| LLM — Parsing | Gemini 2.0 Flash (`gemini-2.0-flash`) | Fast, free tier (1,500 req/day), great at structured JSON extraction |
-| LLM — Assessment | Gemini 2.0 Flash (`gemini-2.0-flash`) | Low latency for multi-turn conversation loop |
-| LLM — Planning | Gemini 1.5 Pro (`gemini-1.5-pro`) | Stronger reasoning for learning plan generation |
+| LLM — Parsing | Gemini 2.5 Flash (`gemini-2.5-flash`) | Fast, free tier, great at structured JSON extraction |
+| LLM — Assessment | Gemini 2.5 Flash (`gemini-2.5-flash`) | Low latency for multi-turn conversation loop |
+| LLM — Planning | Gemini 2.5 Pro (`gemini-2.5-pro`) | Stronger reasoning for learning plan generation |
 | LLM SDK | `google-genai` + `langchain-google-genai` | Official Google SDK + LangChain wrapper for LangGraph integration |
 | Agent Framework | LangGraph | Native stateful multi-step agent with cycle support |
 | Document Parsing | pdfplumber, python-docx | Reliable PDF/DOCX text extraction |
@@ -514,9 +514,9 @@ python-dotenv>=1.0.0
 GOOGLE_API_KEY=AIza...your-key-here...
 
 # Model config
-PARSING_MODEL=gemini-2.0-flash
-ASSESSMENT_MODEL=gemini-2.0-flash
-PLANNING_MODEL=gemini-1.5-pro
+PARSING_MODEL=gemini-2.5-flash
+ASSESSMENT_MODEL=gemini-2.5-flash
+PLANNING_MODEL=gemini-2.5-pro
 ```
 
 ### Verify setup
@@ -530,6 +530,5 @@ print("All imports OK")
 ### Free tier limits (aistudio.google.com)
 | Model | RPM | Requests/day |
 |---|---|---|
-| gemini-2.0-flash | 15 | 1,500 |
-| gemini-1.5-flash | 15 | 1,500 |
-| gemini-1.5-pro | 2 | 50 |
+| gemini-2.5-flash | 10 | 500 |
+| gemini-2.5-pro | 5 | 25 |

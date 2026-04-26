@@ -33,7 +33,7 @@ def _get_client() -> genai.Client:
 
 def _call_llm_json(prompt: str) -> dict:
     client = _get_client()
-    model = os.getenv("PARSING_MODEL", "gemini-1.5-flash")
+    model = os.getenv("PARSING_MODEL", "gemini-2.5-flash")
     response = client.models.generate_content(model=model, contents=prompt)
     text = response.text.strip()
 
