@@ -1,0 +1,21 @@
+# environment & secrets
+.env
+*.env
+
+# python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# editor
+.DS_Store
+.idea/
+.vscode/
+
+# temp files
+*.tmp
+/tmp/
