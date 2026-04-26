@@ -2,31 +2,19 @@ import json
 import os
 from datetime import datetime
 from dotenv import load_dotenv
-from google import genai
 
 from models.schemas import (
     SkillGap, LearningPlan, LearningPlanItem, LearningResource,
     GapLabel, ResourceType
 )
 from prompts.planning import LEARNING_PLAN_PROMPT, REPORT_SUMMARY_PROMPT
+from utils.llm_client import call_llm
 
 load_dotenv()
 
-_client = None  # type: genai.Client
-
-
-def _get_client() -> genai.Client:
-    global _client
-    if _client is None:
-        _client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
-    return _client
-
 
 def _call_llm(prompt: str) -> str:
-    model = os.getenv("PLANNING_MODEL", "gemini-2.5-flash")
-    response = _get_client().models.generate_content(model=model, contents=prompt)
-    return response.text.strip()
-
+    return call_llm(prompt, model_env_key="PLANNING_MODEL", default_model="gemini-2.5-flash")
 
 def _parse_json(text: str) -> dict:
     if text.startswith("```"):

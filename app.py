@@ -289,12 +289,19 @@ if st.session_state.phase == Phase.ASSESS and st.session_state.current_skill:
         q = st.session_state.question_pending
         add_message("user", answer)
 
-        with st.spinner("Scoring your response..."):
-            result = score_response(
-                skill=st.session_state.current_skill,
-                question=q.question,
-                response=answer,
-            )
+        try:
+            with st.spinner("Scoring your response..."):
+                result = score_response(
+                    skill=st.session_state.current_skill,
+                    question=q.question,
+                    response=answer,
+                )
+        except Exception as e:
+            if "429" in str(e):
+                st.warning("⏳ Rate limit hit — the app will auto-retry in 60 seconds. Please wait.")
+            else:
+                st.error(f"Error: {e}")
+            st.stop()
 
         # record turn
         turn = AssessmentTurn(

@@ -1,7 +1,6 @@
 import os
 from typing import Callable
 from dotenv import load_dotenv
-from google import genai
 
 from models.schemas import (
     Skill, ProficiencyScore, AssessmentTurn,
@@ -10,26 +9,16 @@ from models.schemas import (
 from prompts.assessment import (
     QUESTION_GEN_PROMPT, SCORE_RESPONSE_PROMPT, ASSESSMENT_INTRO_PROMPT
 )
+from utils.llm_client import call_llm
 
 load_dotenv()
 
-MAX_QUESTIONS_PER_SKILL = 4
+MAX_QUESTIONS_PER_SKILL = 3
 MIN_QUESTIONS_PER_SKILL = 2
-
-_client = None  # type: genai.Client
-
-
-def _get_client() -> genai.Client:
-    global _client
-    if _client is None:
-        _client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
-    return _client
 
 
 def _call_llm(prompt: str) -> str:
-    model = os.getenv("ASSESSMENT_MODEL", "gemini-2.5-flash")
-    response = _get_client().models.generate_content(model=model, contents=prompt)
-    return response.text.strip()
+    return call_llm(prompt, model_env_key="ASSESSMENT_MODEL", default_model="gemini-2.5-flash")
 
 
 def _parse_json_response(text: str) -> dict:
