@@ -310,11 +310,13 @@ class LearningPlan:
 
 | Layer | Choice | Rationale |
 |---|---|---|
-| LLM | Claude Sonnet 4.6 (assessment) / Haiku 4.5 (parsing) | Sonnet for reasoning depth; Haiku for fast extraction |
+| LLM — Parsing | Gemini 2.0 Flash (`gemini-2.0-flash`) | Fast, free tier (1,500 req/day), great at structured JSON extraction |
+| LLM — Assessment | Gemini 2.0 Flash (`gemini-2.0-flash`) | Low latency for multi-turn conversation loop |
+| LLM — Planning | Gemini 1.5 Pro (`gemini-1.5-pro`) | Stronger reasoning for learning plan generation |
+| LLM SDK | `google-genai` + `langchain-google-genai` | Official Google SDK + LangChain wrapper for LangGraph integration |
 | Agent Framework | LangGraph | Native stateful multi-step agent with cycle support |
 | Document Parsing | pdfplumber, python-docx | Reliable PDF/DOCX text extraction |
 | UI | Streamlit | Rapid chat UI; sufficient for hackathon scope |
-| API Layer | FastAPI | Clean separation if UI needs to be decoupled |
 | State Persistence | In-memory (v1) / Redis (v2) | Keep v1 simple |
 | Skill Taxonomy | Custom JSON (seeded from O*NET) | Normalises skill aliases |
 
@@ -326,7 +328,7 @@ class LearningPlan:
 2. **Persona consistency** — the assessment agent maintains a consistent persona: curious, direct, non-judgmental.
 3. **Calibration injection** — every assessment prompt includes the candidate's claimed level so questions start at the right difficulty.
 4. **Rationale capture** — each scoring call includes chain-of-thought reasoning before the score, improving accuracy and auditability.
-5. **Prompt caching** — system prompts and the skill taxonomy are cached using Claude's prompt caching feature to reduce latency and cost on multi-turn conversations.
+5. **Context caching** — system prompts and skill taxonomy passed once as context; Gemini's large context window (1M tokens) handles full conversation history without truncation.
 
 ---
 
@@ -473,3 +475,61 @@ skill-assessment-agent/
 ---
 
 *This document is a living design. Update open questions and implementation phases as decisions are made.*
+
+---
+
+## Appendix A — Step 0: Project Bootstrap (Google API)
+
+### Prerequisites
+- Python 3.9+
+- Google API key from **aistudio.google.com** (free, no credit card)
+
+### Setup
+
+```bash
+# 1. Create and activate virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 2. Install dependencies
+pip install -r requirements.txt
+```
+
+### `requirements.txt`
+```
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain-google-genai>=2.0.0
+google-genai>=1.0.0
+google-generativeai>=0.8.0
+pdfplumber>=0.11.0
+python-docx>=1.1.0
+pydantic>=2.7.0
+streamlit>=1.40.0
+python-dotenv>=1.0.0
+```
+
+### `.env`
+```
+GOOGLE_API_KEY=AIza...your-key-here...
+
+# Model config
+PARSING_MODEL=gemini-2.0-flash
+ASSESSMENT_MODEL=gemini-2.0-flash
+PLANNING_MODEL=gemini-1.5-pro
+```
+
+### Verify setup
+```python
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langgraph.graph import StateGraph, END
+import google.genai as genai
+print("All imports OK")
+```
+
+### Free tier limits (aistudio.google.com)
+| Model | RPM | Requests/day |
+|---|---|---|
+| gemini-2.0-flash | 15 | 1,500 |
+| gemini-1.5-flash | 15 | 1,500 |
+| gemini-1.5-pro | 2 | 50 |
