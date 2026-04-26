@@ -1,0 +1,67 @@
+{
+  "python": [
+    {"title": "Python Official Tutorial", "url": "https://docs.python.org/3/tutorial/", "type": "docs", "estimated_hours": 10, "free": true},
+    {"title": "Real Python — Intermediate Python", "url": "https://realpython.com/", "type": "reading", "estimated_hours": 20, "free": true},
+    {"title": "Python for Everybody (Coursera)", "url": "https://www.coursera.org/specializations/python", "type": "course", "estimated_hours": 40, "free": false},
+    {"title": "Build a CLI project on GitHub", "url": "https://github.com/topics/python-project", "type": "project", "estimated_hours": 15, "free": true}
+  ],
+  "sql": [
+    {"title": "SQLZoo", "url": "https://sqlzoo.net/", "type": "course", "estimated_hours": 10, "free": true},
+    {"title": "Mode SQL Tutorial", "url": "https://mode.com/sql-tutorial/", "type": "reading", "estimated_hours": 8, "free": true},
+    {"title": "PostgreSQL Official Docs", "url": "https://www.postgresql.org/docs/", "type": "docs", "estimated_hours": 5, "free": true},
+    {"title": "LeetCode SQL Practice", "url": "https://leetcode.com/problemset/database/", "type": "project", "estimated_hours": 12, "free": true}
+  ],
+  "machine learning": [
+    {"title": "fast.ai Practical Deep Learning", "url": "https://course.fast.ai/", "type": "course", "estimated_hours": 60, "free": true},
+    {"title": "Hands-On ML with Scikit-Learn (book)", "url": "https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/", "type": "reading", "estimated_hours": 50, "free": false},
+    {"title": "Kaggle Learn — Machine Learning", "url": "https://www.kaggle.com/learn/machine-learning", "type": "course", "estimated_hours": 8, "free": true},
+    {"title": "Kaggle Competitions (beginner)", "url": "https://www.kaggle.com/competitions?hostSegment=general", "type": "project", "estimated_hours": 20, "free": true}
+  ],
+  "apache spark": [
+    {"title": "Databricks Academy — Apache Spark", "url": "https://www.databricks.com/learn/training/catalog", "type": "course", "estimated_hours": 16, "free": true},
+    {"title": "Spark: The Definitive Guide (O'Reilly)", "url": "https://www.oreilly.com/library/view/spark-the-definitive/9781491912201/", "type": "reading", "estimated_hours": 40, "free": false},
+    {"title": "Apache Spark Official Docs", "url": "https://spark.apache.org/docs/latest/", "type": "docs", "estimated_hours": 8, "free": true},
+    {"title": "Run Spark locally with Docker", "url": "https://hub.docker.com/r/bitnami/spark", "type": "project", "estimated_hours": 10, "free": true}
+  ],
+  "dbt": [
+    {"title": "dbt Fundamentals (official free course)", "url": "https://learn.getdbt.com/courses/dbt-fundamentals", "type": "course", "estimated_hours": 5, "free": true},
+    {"title": "dbt Best Practices Guide", "url": "https://docs.getdbt.com/guides/best-practices", "type": "docs", "estimated_hours": 4, "free": true},
+    {"title": "dbt Official Documentation", "url": "https://docs.getdbt.com/", "type": "docs", "estimated_hours": 6, "free": true},
+    {"title": "Build an end-to-end dbt project", "url": "https://github.com/dbt-labs/jaffle_shop", "type": "project", "estimated_hours": 10, "free": true}
+  ],
+  "data modelling": [
+    {"title": "Data Warehouse Toolkit (Kimball)", "url": "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/books/data-warehouse-dw-toolkit/", "type": "reading", "estimated_hours": 30, "free": false},
+    {"title": "dbt Data Modelling Guide", "url": "https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview", "type": "docs", "estimated_hours": 5, "free": true},
+    {"title": "Vertabelo Academy — Data Modelling", "url": "https://vertabelo.com/blog/data-modeling/", "type": "reading", "estimated_hours": 8, "free": true}
+  ],
+  "docker": [
+    {"title": "Docker Official Get Started", "url": "https://docs.docker.com/get-started/", "type": "docs", "estimated_hours": 6, "free": true},
+    {"title": "Play with Docker (browser labs)", "url": "https://labs.play-with-docker.com/", "type": "project", "estimated_hours": 8, "free": true},
+    {"title": "Docker and Kubernetes (Udemy)", "url": "https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/", "type": "course", "estimated_hours": 20, "free": false}
+  ],
+  "kubernetes": [
+    {"title": "Kubernetes Official Tutorials", "url": "https://kubernetes.io/docs/tutorials/", "type": "docs", "estimated_hours": 10, "free": true},
+    {"title": "Killer.sh CKA Practice", "url": "https://killer.sh/", "type": "project", "estimated_hours": 20, "free": false},
+    {"title": "KodeKloud Kubernetes for Beginners", "url": "https://kodekloud.com/courses/kubernetes-for-the-absolute-beginners-hands-on/", "type": "course", "estimated_hours": 8, "free": false}
+  ],
+  "javascript": [
+    {"title": "MDN JavaScript Guide", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide", "type": "docs", "estimated_hours": 15, "free": true},
+    {"title": "The Odin Project — JavaScript", "url": "https://www.theodinproject.com/paths/full-stack-javascript", "type": "course", "estimated_hours": 80, "free": true},
+    {"title": "JavaScript30 (30 projects)", "url": "https://javascript30.com/", "type": "project", "estimated_hours": 30, "free": true}
+  ],
+  "react": [
+    {"title": "React Official Docs (beta)", "url": "https://react.dev/learn", "type": "docs", "estimated_hours": 10, "free": true},
+    {"title": "Scrimba — Learn React", "url": "https://scrimba.com/learn/learnreact", "type": "course", "estimated_hours": 12, "free": true},
+    {"title": "Build a full-stack React app", "url": "https://github.com/topics/react-project", "type": "project", "estimated_hours": 20, "free": true}
+  ],
+  "aws": [
+    {"title": "AWS Cloud Practitioner Essentials", "url": "https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/", "type": "course", "estimated_hours": 6, "free": true},
+    {"title": "AWS Official Documentation", "url": "https://docs.aws.amazon.com/", "type": "docs", "estimated_hours": 10, "free": true},
+    {"title": "A Cloud Guru — AWS Solutions Architect", "url": "https://acloudguru.com/course/aws-certified-solutions-architect-associate-saa-c03", "type": "course", "estimated_hours": 40, "free": false}
+  ],
+  "data engineering": [
+    {"title": "Fundamentals of Data Engineering (O'Reilly)", "url": "https://www.oreilly.com/library/view/fundamentals-of-data/9781098108298/", "type": "reading", "estimated_hours": 35, "free": false},
+    {"title": "DataTalks.Club Data Engineering Zoomcamp", "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp", "type": "course", "estimated_hours": 60, "free": true},
+    {"title": "Apache Airflow Official Docs", "url": "https://airflow.apache.org/docs/", "type": "docs", "estimated_hours": 8, "free": true}
+  ]
+}

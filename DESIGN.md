@@ -82,9 +82,9 @@ A resume tells you what someone *claims* to know — not how well they actually 
        └────────────────┴─────────────────────────┘
                               │
                     ┌─────────▼─────────┐
-                    │  Claude API        │
-                    │  (claude-sonnet-   │
-                    │   4-6 / opus-4-7)  │
+                    │  Google Gemini API │
+                    │  (gemini-2.0-flash │
+                    │  / gemini-1.5-pro) │
                     └───────────────────┘
 ```
 
